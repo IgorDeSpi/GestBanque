@@ -63,7 +63,7 @@ public class Courant
         {
             Console.WriteLine("Vous tentez de faire un dépôt?");
         }
-        else if ((oldSolde -= Montant) < LigneDeCredit)
+        else if (Solde - Montant < -LigneDeCredit)
         {
             Console.WriteLine($"Retrait impossible, solde insuffisant. Solde actuel : {Solde} euros.");
         }
