@@ -43,7 +43,7 @@ public class Banque
         Console.WriteLine("Voici la liste des comptes actuels dans la banque");
         foreach (var kvp in _comptes)
         {
-            Console.WriteLine($"Clé : {kvp.Key}, Valeur: {kvp.Value}.");
+            Console.WriteLine($"Clé : {kvp.Key}, Valeur: {kvp.Value.Titulaire.Nom}.");
         }
     }
 }
