@@ -33,9 +33,9 @@ public class Banque
     public void AfficherListe()
     {
         Console.WriteLine("Voici la liste des comptes actuels dans la banque :");
-        foreach (var index in _comptes)
+        foreach (var compte in _comptes)
         {
-            Console.WriteLine($"Clé : {index.Key}, Titulaire: {index.Value.Titulaire.Prenom} {index.Value.Titulaire.Nom}.");
+            Console.WriteLine($"Numéro de compte : {compte.Key}, Titulaire: {compte.Value.Titulaire.Prenom} {compte.Value.Titulaire.Nom}.");
         }
     }
 }
