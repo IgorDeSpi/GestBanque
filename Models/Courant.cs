@@ -59,7 +59,11 @@ public class Courant
     public void Retrait(double Montant)
     {
         double oldSolde = Solde;
-        if ((oldSolde -= Montant) < LigneDeCredit)
+        if (Montant < 0)
+        {
+            Console.WriteLine("Vous tentez de faire un dépôt?");
+        }
+        else if ((oldSolde -= Montant) < LigneDeCredit)
         {
             Console.WriteLine($"Retrait impossible, solde insuffisant. Solde actuel : {Solde} euros.");
         }
@@ -73,7 +77,14 @@ public class Courant
 
     public void Depot(double Montant)
     {
-        Solde = Solde + Montant;
-        Console.WriteLine($"Voici votre solde après le dépôt de {Montant} euros sur votre compte : {Solde} euros.");
+        if (Montant  < 0)
+        {
+            Console.WriteLine("Vous tentez de faire un retrait?");
+        }
+        else
+        {
+            Solde = Solde + Montant;
+            Console.WriteLine($"Voici votre solde après le dépôt de {Montant} euros sur votre compte : {Solde} euros.");
+        }
     }
 }
