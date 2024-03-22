@@ -11,21 +11,21 @@ public class Courant
     public string Numero;
 
     private double _solde;
-    public double Solde 
-    { 
+    public double Solde
+    {
         get
         {
             return _solde;
         }
         private set
         {
-            if (value < 0)
+            if (value < -LigneDeCredit)
             {
-                Console.WriteLine("Erreur, le solde ne peut pas être négatif.");
+                Console.WriteLine("Erreur, le solde ne peut pas être inférieur à la limite négative de votre compte.");
                 return;
             }
             _solde = value;
-        } 
+        }
     }
 
     private double _ligneDeCredit;
@@ -35,7 +35,7 @@ public class Courant
         {
             return _ligneDeCredit;
         }
-        set
+        private set
         {
             if (value < 0)
             {
@@ -58,7 +58,6 @@ public class Courant
 
     public void Retrait(double Montant)
     {
-        double oldSolde = Solde;
         if (Montant < 0)
         {
             Console.WriteLine("Vous tentez de faire un dépôt?");
@@ -77,7 +76,7 @@ public class Courant
 
     public void Depot(double Montant)
     {
-        if (Montant  < 0)
+        if (Montant < 0)
         {
             Console.WriteLine("Vous tentez de faire un retrait?");
         }
