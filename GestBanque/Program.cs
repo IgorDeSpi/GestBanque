@@ -42,10 +42,16 @@ class Program
         banque["00001"].Retrait(-100);
         banque["00001"].Depot(100);
         banque["00001"].Retrait(600);
+        banque["00002"].Depot(4600);
 
         banque.AfficherListe();
-        Console.WriteLine($"Le solde du compte {banque["00001"].Numero} de la banque {banque.Nom} est : {banque["00001"].Solde}");
+
+        Console.WriteLine($"Le solde du compte {banque["00001"].Numero} de la banque {banque.Nom} est de {banque["00001"].Solde} euros.");
+        
+        Console.WriteLine($"Les avoirs de M. {titulaire.Prenom} {titulaire.Nom} sont de {banque.AvoirDesComptes(titulaire)} euros.");
+
         banque.Supprimer(courant.Numero);
         banque.AfficherListe();
+
     }
 }
