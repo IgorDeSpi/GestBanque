@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models;
+﻿namespace Models;
 
 public class Courant
 {
@@ -70,14 +64,6 @@ public class Courant
             _ligneDeCredit = value;
         }
     }
-
-    //public Courant(string numero, double solde, double ligneDeCredit, Personne titulaire)
-    //{
-    //    Numero = numero;
-    //    Solde = solde;
-    //    LigneDeCredit = ligneDeCredit;
-    //    Titulaire = titulaire;
-    //}
 
     public void Retrait(double Montant)
     {
