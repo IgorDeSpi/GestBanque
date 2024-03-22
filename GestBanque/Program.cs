@@ -16,13 +16,13 @@ class Program
         
         Courant courant = new Courant()
         {
-            Numero = "0000001",
+            Numero = "00001",
             LigneDeCredit = 500,
             Titulaire = titulaire
         };
         Courant courant2 = new Courant()
         {
-            Numero = "0000002",
+            Numero = "00002",
             LigneDeCredit = 500,
             Titulaire = titulaire
         };
@@ -33,10 +33,14 @@ class Program
         //courant.Retrait(100);
         //courant.Retrait(600);
 
-        Banque banque = new Banque();
+        Banque banque = new Banque()
+        {
+            Nom = "Bruxelles Bruxelles vie"
+        };
 
         banque.Ajouter(courant);
         banque.Ajouter(courant2);
+        Console.WriteLine($"Le solde du compte {banque["00001"].Numero} de la banque {banque.Nom} est : {banque["00001"].Solde}");
         banque.Supprimer(courant.Numero);
     }
 }

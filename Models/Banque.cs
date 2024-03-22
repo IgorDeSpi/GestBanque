@@ -29,21 +29,20 @@ public class Banque
     public void Ajouter(Courant compte)
     {
         _comptes.Add(compte.Numero, compte);
-        Console.WriteLine("Voici la liste des comptes actuels dans la banque");
-        foreach (var kvp in _comptes)
+        Console.WriteLine("Voici la liste des comptes actuels dans la banque :");
+        foreach (var index in _comptes)
         {
-            Console.WriteLine($"Clé : {kvp.Key}, titulaire : {kvp.Value.Titulaire.Nom}.");
+            Console.WriteLine($"Clé : {index.Key}, Titulaire : {index.Value.Titulaire.Nom}.");
         }
     }
 
     public void Supprimer(string Numero)
     {
-        Courant compte = this[Numero];
         _comptes.Remove(Numero);
-        Console.WriteLine("Voici la liste des comptes actuels dans la banque");
-        foreach (var kvp in _comptes)
+        Console.WriteLine("Voici la liste des comptes actuels dans la banque :");
+        foreach (var index in _comptes)
         {
-            Console.WriteLine($"Clé : {kvp.Key}, Valeur: {kvp.Value.Titulaire.Nom}.");
+            Console.WriteLine($"Clé : {index.Key}, Titulaire: {index.Value.Titulaire.Nom}.");
         }
     }
 }
