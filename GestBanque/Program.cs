@@ -40,7 +40,9 @@ class Program
 
         banque.Ajouter(courant);
         banque.Ajouter(courant2);
+        banque.AfficherListe();
         Console.WriteLine($"Le solde du compte {banque["00001"].Numero} de la banque {banque.Nom} est : {banque["00001"].Solde}");
         banque.Supprimer(courant.Numero);
+        banque.AfficherListe();
     }
 }

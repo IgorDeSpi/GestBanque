@@ -2,21 +2,9 @@
 
 public class Banque
 {
-    private string _nom;
+    public string Nom {  get; set; }
 
     private Dictionary<string, Courant> _comptes = new Dictionary<string, Courant>();
-
-    public string Nom
-    {
-        get
-        {
-            return _nom;
-        }
-        set
-        {
-            _nom = value;
-        }
-    }
 
     public Courant this[string Numero]
     {
@@ -29,20 +17,19 @@ public class Banque
     public void Ajouter(Courant compte)
     {
         _comptes.Add(compte.Numero, compte);
-        Console.WriteLine("Voici la liste des comptes actuels dans la banque :");
-        foreach (var index in _comptes)
-        {
-            Console.WriteLine($"Clé : {index.Key}, Titulaire : {index.Value.Titulaire.Nom}.");
-        }
     }
 
     public void Supprimer(string Numero)
     {
         _comptes.Remove(Numero);
+    }
+
+    public void AfficherListe()
+    {
         Console.WriteLine("Voici la liste des comptes actuels dans la banque :");
         foreach (var index in _comptes)
         {
-            Console.WriteLine($"Clé : {index.Key}, Titulaire: {index.Value.Titulaire.Nom}.");
+            Console.WriteLine($"Clé : {index.Key}, Titulaire: {index.Value.Titulaire.Prenom} {index.Value.Titulaire.Nom}.");
         }
     }
 }
