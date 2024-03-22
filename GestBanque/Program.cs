@@ -19,11 +19,23 @@ class Program
             LigneDeCredit = 500,
             Titulaire = titulaire
         };
+        Courant courant2 = new Courant()
+        {
+            Numero = "0000002",
+            LigneDeCredit = 500,
+            Titulaire = titulaire
+        };
 
-        courant.Depot(-100);
-        courant.Depot(100);
-        courant.Retrait(-100);
-        courant.Retrait(100);
-        courant.Retrait(600);
+        //courant.Depot(-100);
+        //courant.Depot(100);
+        //courant.Retrait(-100);
+        //courant.Retrait(100);
+        //courant.Retrait(600);
+
+        Banque banque = new Banque();
+
+        banque.Ajouter(courant);
+        banque.Ajouter(courant2);
+        banque.Supprimer("0000001");
     }
 }
