@@ -27,19 +27,22 @@ class Program
             Titulaire = titulaire
         };
 
-        //courant.Depot(-100);
-        //courant.Depot(100);
-        //courant.Retrait(-100);
-        //courant.Retrait(100);
-        //courant.Retrait(600);
+        
 
         Banque banque = new Banque()
         {
             Nom = "Bruxelles Bruxelles vie"
         };
-
+        
         banque.Ajouter(courant);
         banque.Ajouter(courant2);
+
+        banque["00001"].Depot(-100);
+        banque["00001"].Depot(100);
+        banque["00001"].Retrait(-100);
+        banque["00001"].Depot(100);
+        banque["00001"].Retrait(600);
+
         banque.AfficherListe();
         Console.WriteLine($"Le solde du compte {banque["00001"].Numero} de la banque {banque.Nom} est : {banque["00001"].Solde}");
         banque.Supprimer(courant.Numero);

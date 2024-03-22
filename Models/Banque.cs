@@ -6,10 +6,14 @@ public class Banque
 
     private Dictionary<string, Courant> _comptes = new Dictionary<string, Courant>();
 
-    public Courant this[string Numero]
+    public Courant? this[string Numero]
     {
         get
         {
+            if (!_comptes.ContainsKey(Numero))
+            {
+                return null;
+            }
             return _comptes[Numero];
         }
     }
@@ -21,6 +25,8 @@ public class Banque
 
     public void Supprimer(string Numero)
     {
+        if (!_comptes.ContainsKey(Numero))
+            return;
         _comptes.Remove(Numero);
     }
 
