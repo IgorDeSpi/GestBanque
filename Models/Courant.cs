@@ -8,9 +8,35 @@ namespace Models;
 
 public class Courant
 {
-    public string Numero;
-
+    private string _numero;
     private double _solde;
+    private double _ligneDeCredit; 
+    private Personne _titulaire;
+
+    public string Numero
+    {
+        get
+        {
+            return _numero;
+        }
+        set
+        {
+            _numero = value;
+        }
+    }
+
+    public Personne Titulaire
+    {
+        get
+        {
+            return _titulaire;
+        }
+        set
+        {
+            _titulaire = value;
+        }
+    }
+
     public double Solde
     {
         get
@@ -28,14 +54,13 @@ public class Courant
         }
     }
 
-    private double _ligneDeCredit;
     public double LigneDeCredit
     {
         get
         {
             return _ligneDeCredit;
         }
-        private set
+        set
         {
             if (value < 0)
             {
@@ -46,25 +71,25 @@ public class Courant
         }
     }
 
-    public Personne Titulaire;
-
-    public Courant(string numero, double solde, double ligneDeCredit, Personne titulaire)
-    {
-        Numero = numero;
-        Solde = solde;
-        LigneDeCredit = ligneDeCredit;
-        Titulaire = titulaire;
-    }
+    //public Courant(string numero, double solde, double ligneDeCredit, Personne titulaire)
+    //{
+    //    Numero = numero;
+    //    Solde = solde;
+    //    LigneDeCredit = ligneDeCredit;
+    //    Titulaire = titulaire;
+    //}
 
     public void Retrait(double Montant)
     {
-        if (Montant < 0)
+        if (Montant <= 0)
         {
             Console.WriteLine("Vous tentez de faire un dépôt?");
+            return;
         }
         else if (Solde - Montant < -LigneDeCredit)
         {
             Console.WriteLine($"Retrait impossible, solde insuffisant. Solde actuel : {Solde} euros.");
+            return;
         }
         else
         {
@@ -76,13 +101,14 @@ public class Courant
 
     public void Depot(double Montant)
     {
-        if (Montant < 0)
+        if (Montant <= 0)
         {
             Console.WriteLine("Vous tentez de faire un retrait?");
+            return;
         }
         else
         {
-            Solde = Solde + Montant;
+            Solde += Montant;
             Console.WriteLine($"Voici votre solde après le dépôt de {Montant} euros sur votre compte : {Solde} euros.");
         }
     }

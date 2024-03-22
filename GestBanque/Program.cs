@@ -2,14 +2,28 @@
 
 namespace GestBanque;
 
-internal class Program
+class Program
 {
     static void Main(string[] args)
     {
-        Personne titulaire = new Personne("de Spirlet", "Igor", new DateTime(1998, 3, 15));
-        Courant courant = new Courant("0000001", 2, 15,titulaire);
+        Personne titulaire = new Personne()
+        {
+            Nom = "de Spirlet",
+            Prenom = "Igor",
+            DateNaiss = new DateTime(1998, 3, 15)
 
-        courant.Retrait(2);
-        courant.Depot(5);
+        };
+        Courant courant = new Courant()
+        {
+            Numero = "0000001",
+            LigneDeCredit = 500,
+            Titulaire = titulaire
+        };
+
+        courant.Depot(-100);
+        courant.Depot(100);
+        courant.Retrait(-100);
+        courant.Retrait(100);
+        courant.Retrait(600);
     }
 }
