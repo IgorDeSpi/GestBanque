@@ -8,9 +8,9 @@ class Program
     {
         Personne titulaire = new Personne()
         {
-            Nom = "de Spirlet",
-            Prenom = "Igor",
-            DateNaiss = new DateTime(1998, 3, 15)
+            Nom = "Doe",
+            Prenom = "John",
+            DateNaiss = new DateTime(1970, 1, 1)
 
         };
         
@@ -37,6 +37,6 @@ class Program
 
         banque.Ajouter(courant);
         banque.Ajouter(courant2);
-        banque.Supprimer("0000001");
+        banque.Supprimer(courant.Numero);
     }
 }
