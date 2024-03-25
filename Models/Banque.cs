@@ -4,9 +4,9 @@ public class Banque
 {
     public string Nom {  get; set; }
 
-    private Dictionary<string, Courant> _comptes = new Dictionary<string, Courant>();
+    private Dictionary<string, Compte> _comptes = new Dictionary<string, Compte>();
 
-    public Courant? this[string Numero]
+    public Compte? this[string Numero]
     {
         get
         {
@@ -18,7 +18,7 @@ public class Banque
         }
     }
 
-    public void Ajouter(Courant compte)
+    public void Ajouter(Compte compte)
     {
         _comptes.Add(compte.Numero, compte);
     }
@@ -43,7 +43,7 @@ public class Banque
     {
         double total = 0D;
 
-        foreach (Courant compte in _comptes.Values)
+        foreach (Compte compte in _comptes.Values)
         {
             if (compte.Titulaire == titulaire)
             {

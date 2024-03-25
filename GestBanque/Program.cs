@@ -39,20 +39,29 @@ class Program
         };
         
         banque.Ajouter(courant);
+        banque.Ajouter(epargne);
         //banque.Ajouter(courant2);
+
+        if (banque["00001"] is Courant c)
+        {
+            c.LigneDeCredit = -500;
+        }
 
         banque["00001"].Depot(-100);
         banque["00001"].Depot(100);
         banque["00001"].Retrait(-100);
         banque["00001"].Depot(100);
         banque["00001"].Retrait(600);
-        //banque["00002"].Depot(4600);
 
-        epargne.Depot(300);
-        epargne.Retrait(200);
-        epargne.Retrait(1200);
+        banque["00003"].Depot(300);
+        banque["00003"].Retrait(100);
+        banque["00003"].Retrait(300);
 
-        Console.WriteLine($"\nDate dernier retrait : {epargne.DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
+        //epargne.Depot(300);
+        //epargne.Retrait(200);
+        //epargne.Retrait(1200);
+
+        Console.WriteLine($"\nDate du dernier retrait : {epargne.DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
 
         banque.AfficherListe();
 
@@ -60,7 +69,7 @@ class Program
         
         Console.WriteLine($"Les avoirs de M. {titulaire.Prenom} {titulaire.Nom} sont de {banque.AvoirDesComptes(titulaire)} euros.");
 
-        banque.Supprimer(courant.Numero);
+        //banque.Supprimer(courant.Numero);
         banque.AfficherListe();
 
     }
