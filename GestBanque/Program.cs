@@ -52,7 +52,7 @@ class Program
         epargne.Retrait(200);
         epargne.Retrait(1200);
 
-        Console.WriteLine($"\n {epargne.DateDernierRetrait} : {epargne.Solde} \n");
+        Console.WriteLine($"\nDate dernier retrait : {epargne.DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
 
         banque.AfficherListe();
 
