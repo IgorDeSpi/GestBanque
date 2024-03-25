@@ -49,8 +49,8 @@ class Program
         //banque["00002"].Depot(4600);
 
         epargne.Depot(300);
-        epargne.Retrait(100);
-        epargne.Retrait(300);
+        epargne.Retrait(200);
+        epargne.Retrait(1200);
 
         Console.WriteLine($"\n {epargne.DateDernierRetrait} : {epargne.Solde} \n");
 

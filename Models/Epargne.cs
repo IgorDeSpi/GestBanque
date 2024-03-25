@@ -18,9 +18,9 @@ public class Epargne : Compte
 
     public override void Retrait(double Montant)
     {
-        double oldSolde = Solde;
+        double ancienSolde = Solde;
         base.Retrait(Montant);
-        if (Solde != oldSolde)
+        if (Solde != ancienSolde)
         {
             DateDernierRetrait = DateTime.Now;
         }
