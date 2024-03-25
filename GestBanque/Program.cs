@@ -27,7 +27,11 @@ class Program
             Titulaire = titulaire
         };
 
-        
+        Epargne epargne = new Epargne()
+        {
+            Numero = "00003",
+            Titulaire = titulaire
+        };
 
         Banque banque = new Banque()
         {
@@ -35,14 +39,20 @@ class Program
         };
         
         banque.Ajouter(courant);
-        banque.Ajouter(courant2);
+        //banque.Ajouter(courant2);
 
         banque["00001"].Depot(-100);
         banque["00001"].Depot(100);
         banque["00001"].Retrait(-100);
         banque["00001"].Depot(100);
         banque["00001"].Retrait(600);
-        banque["00002"].Depot(4600);
+        //banque["00002"].Depot(4600);
+
+        epargne.Depot(300);
+        epargne.Retrait(100);
+        epargne.Retrait(300);
+
+        Console.WriteLine($"\n {epargne.DateDernierRetrait} : {epargne.Solde} \n");
 
         banque.AfficherListe();
 
