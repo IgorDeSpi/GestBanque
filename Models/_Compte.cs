@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public abstract class Compte : ICustomer, IBanker
+public abstract class _Compte : ICustomer, _IBanker
 {
     public static double operator +(double soldePrecedent, Compte courant)
     {
@@ -33,6 +33,12 @@ public abstract class Compte : ICustomer, IBanker
         {
             _solde = value;
         }
+    }
+
+    public virtual double LigneDeCredit
+    {
+        get { return 0D; }
+        set { return; }
     }
 
     public Personne Titulaire
