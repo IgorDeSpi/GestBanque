@@ -2,7 +2,7 @@
 
 public abstract class _Compte : ICustomer, _IBanker
 {
-    public static double operator +(double soldePrecedent, Compte courant)
+    public static double operator +(double soldePrecedent, _Compte courant)
     {
         return ((soldePrecedent < 0) ? 0 : soldePrecedent) + ((courant.Solde < 0) ? 0 : courant.Solde);
     }
