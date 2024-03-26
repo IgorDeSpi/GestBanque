@@ -14,20 +14,20 @@ class Program
 
         };
         
-        Courant courant = new Courant()
+        Compte courant = new Courant()
         {
             Numero = "00001",
             LigneDeCredit = 500,
             Titulaire = titulaire
         };
-        Courant courant2 = new Courant()
+        Compte courant2 = new Courant()
         {
             Numero = "00002",
             LigneDeCredit = 500,
             Titulaire = titulaire
         };
 
-        Epargne epargne = new Epargne()
+        Compte epargne = new Epargne()
         {
             Numero = "00003",
             Titulaire = titulaire
@@ -61,7 +61,9 @@ class Program
         //epargne.Retrait(200);
         //epargne.Retrait(1200);
 
-        Console.WriteLine($"\nDate du dernier retrait : {epargne.DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
+        Epargne a = (Epargne)banque["00003"];
+
+        Console.WriteLine($"\nDate du dernier retrait : {a.DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
 
         banque.AfficherListe();
 
