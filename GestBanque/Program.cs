@@ -61,18 +61,17 @@ class Program
         //epargne.Retrait(200);
         //epargne.Retrait(1200);
 
-        Epargne a = (Epargne)banque["00003"];
-
-        Console.WriteLine($"\nDate du dernier retrait : {a.DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
+        Console.WriteLine($"\nDate du dernier retrait : {((Epargne)banque["00003"]).DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
 
         banque.AfficherListe();
 
         Console.WriteLine($"Le solde du compte {banque["00001"].Numero} de la banque {banque.Nom} est de {banque["00001"].Solde} euros.");
         
-        Console.WriteLine($"Les avoirs de M. {titulaire.Prenom} {titulaire.Nom} sont de {banque.AvoirDesComptes(titulaire)} euros.");
+        Console.WriteLine($"Avoirs de M. {titulaire.Prenom} {titulaire.Nom} : {banque.AvoirDesComptes(titulaire)} euros.");
+        
         Console.WriteLine($"\nSolde avant intérêts du compte courant {banque["00003"].Numero} : {banque["00003"].Solde}");
         banque["00003"].AppliquerInteret();
-        Console.WriteLine($"\nAffichage intérêts du compte courant {banque["00003"].Numero} : {banque["00003"].Solde}");
+        Console.WriteLine($"\nSolde après intérêts du compte courant {banque["00003"].Numero} : {banque["00003"].Solde}");
 
         //banque.Supprimer(courant.Numero);
         banque.AfficherListe();
