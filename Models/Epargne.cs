@@ -25,4 +25,9 @@ public class Epargne : Compte
             DateDernierRetrait = DateTime.Now;
         }
     }
+
+    protected override double CalculInteret()
+    {
+        return Solde * .045;
+    }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Compte
+public abstract class Compte
 {
     public static double operator +(double soldePrecedent, Compte courant)
     {
@@ -83,5 +83,12 @@ public class Compte
             Solde -= Montant;
             Console.WriteLine($"Voici votre solde après le retrait de {Montant} euros de votre compte : {Solde} euros.");
         }
+    }
+
+    protected abstract double CalculInteret();
+
+    public void AppliquerInteret()
+    {
+        Solde += CalculInteret();
     }
 }
