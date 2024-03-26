@@ -69,11 +69,6 @@ public abstract class _Compte : ICustomer, _IBanker
 
     public virtual void Retrait(double Montant)
     {
-        Retrait(Montant, 0D);
-    }
-
-    protected void Retrait(double Montant, double LigneDeCredit)
-    {
         if (Montant <= 0)
         {
             Console.WriteLine("Vous tentez de faire un dépôt?");
