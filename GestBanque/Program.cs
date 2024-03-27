@@ -15,10 +15,7 @@ class Program
 
         Compte epargne = new Epargne("00003", titulaire);
 
-        Banque banque = new Banque()
-        {
-            Nom = "Bruxelles Bruxelles vie"
-        };
+        Banque banque = new Banque("Bruxelles Bruxelles vie");
         
         banque.Ajouter(courant);
         banque.Ajouter(epargne);
