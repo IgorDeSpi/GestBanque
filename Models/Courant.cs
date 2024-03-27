@@ -2,7 +2,7 @@
 
 public class Courant : Compte
 {
-    private double _ligneDeCredit; 
+    private double _ligneDeCredit;
 
     public double LigneDeCredit
     {

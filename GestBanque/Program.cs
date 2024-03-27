@@ -16,7 +16,7 @@ class Program
         Compte epargne = new Epargne("00003", titulaire);
 
         Banque banque = new Banque("Bruxelles Bruxelles vie");
-        
+
         banque.Ajouter(courant);
         banque.Ajouter(epargne);
         banque.Ajouter(courant2);
@@ -45,9 +45,9 @@ class Program
         banque.AfficherListe();
 
         Console.WriteLine($"Le solde du compte {banque["00001"].Numero} de la banque {banque.Nom} est de {banque["00001"].Solde} euros.");
-        
+
         Console.WriteLine($"Avoirs de M. {titulaire.Prenom} {titulaire.Nom} : {banque.AvoirDesComptes(titulaire)} euros.");
-        
+
         Console.WriteLine($"\nSolde avant intérêts du compte {banque["00003"].Numero} : {banque["00003"].Solde}");
         banque["00003"].AppliquerInteret();
         Console.WriteLine($"\nSolde après intérêts du compte {banque["00003"].Numero} : {banque["00003"].Solde}");
