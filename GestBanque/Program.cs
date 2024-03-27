@@ -6,32 +6,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Personne titulaire = new Personne()
-        {
-            Nom = "Doe",
-            Prenom = "John",
-            DateNaiss = new DateTime(1970, 1, 1)
+        Personne titulaire = new Personne("Doe", "John", new DateTime(1970, 1, 1));
 
-        };
-        
-        Compte courant = new Courant()
-        {
-            Numero = "00001",
-            LigneDeCredit = 500,
-            Titulaire = titulaire
-        };
-        Compte courant2 = new Courant()
-        {
-            Numero = "00002",
-            LigneDeCredit = 500,
-            Titulaire = titulaire
-        };
 
-        Compte epargne = new Epargne()
-        {
-            Numero = "00003",
-            Titulaire = titulaire
-        };
+        Compte courant = new Courant("00001", 500, titulaire);
+
+        Compte courant2 = new Courant("00002", titulaire, 1500);
+
+        Compte epargne = new Epargne("00003", titulaire);
 
         Banque banque = new Banque()
         {
@@ -40,7 +22,7 @@ class Program
         
         banque.Ajouter(courant);
         banque.Ajouter(epargne);
-        //banque.Ajouter(courant2);
+        banque.Ajouter(courant2);
 
         if (banque["00001"] is Courant c)
         {
@@ -69,9 +51,9 @@ class Program
         
         Console.WriteLine($"Avoirs de M. {titulaire.Prenom} {titulaire.Nom} : {banque.AvoirDesComptes(titulaire)} euros.");
         
-        Console.WriteLine($"\nSolde avant intérêts du compte courant {banque["00003"].Numero} : {banque["00003"].Solde}");
+        Console.WriteLine($"\nSolde avant intérêts du compte {banque["00003"].Numero} : {banque["00003"].Solde}");
         banque["00003"].AppliquerInteret();
-        Console.WriteLine($"\nSolde après intérêts du compte courant {banque["00003"].Numero} : {banque["00003"].Solde}");
+        Console.WriteLine($"\nSolde après intérêts du compte {banque["00003"].Numero} : {banque["00003"].Solde}");
 
         //banque.Supprimer(courant.Numero);
         banque.AfficherListe();
