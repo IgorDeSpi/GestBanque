@@ -8,8 +8,7 @@ class Program
     {
         Personne titulaire = new Personne("Doe", "John", new DateTime(1970, 1, 1));
 
-
-        Compte courant = new Courant("00001", 500, titulaire);
+        Compte courant = new Courant("00001", 200, titulaire);
 
         Compte courant2 = new Courant("00002", titulaire, 1500);
 
@@ -23,22 +22,58 @@ class Program
 
         if (banque["00001"] is Courant c)
         {
-            c.LigneDeCredit = -500;
+            try
+            {
+                c.LigneDeCredit = -500;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
-        banque["00001"].Depot(-100);
-        banque["00001"].Depot(100);
-        banque["00001"].Retrait(-100);
-        banque["00001"].Depot(100);
-        banque["00001"].Retrait(600);
+        try
+        {
+            banque["00001"].Depot(-100);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        banque["00001"].Depot(500);
+
+        try
+        {
+            banque["00001"].Retrait(-100);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        try
+        {
+            banque["00001"].Retrait(701);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        banque["00001"].Retrait(700);
 
         banque["00003"].Depot(300);
         banque["00003"].Retrait(100);
-        banque["00003"].Retrait(300);
 
-        //epargne.Depot(300);
-        //epargne.Retrait(200);
-        //epargne.Retrait(1200);
+        try
+        {
+            banque["00003"].Retrait(300);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
 
         Console.WriteLine($"\nDate du dernier retrait : {((Epargne)banque["00003"]).DateDernierRetrait}, solde du compte épargne : {epargne.Solde} euros \n");
 

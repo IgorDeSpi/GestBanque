@@ -62,8 +62,7 @@ public abstract class Compte : ICustomer, IBanker
     {
         if (Montant <= 0)
         {
-            Console.WriteLine("Vous tentez de faire un retrait?");
-            return;
+            throw new ArgumentOutOfRangeException(nameof(Montant), "La valeur doit être supérieure à 0!");
         }
         else
         {
@@ -81,13 +80,11 @@ public abstract class Compte : ICustomer, IBanker
     {
         if (Montant <= 0)
         {
-            Console.WriteLine("Vous tentez de faire un dépôt?");
-            return;
+            throw new ArgumentOutOfRangeException(nameof(Montant), "La valeur doit être supérieure à 0!");
         }
         else if (Solde - Montant < -LigneDeCredit)
         {
-            Console.WriteLine($"Retrait impossible, solde insuffisant. Solde actuel : {Solde} euros.");
-            return;
+            throw new SoldeInsuffisantException("Solde insuffisant!");
         }
         else
         {
