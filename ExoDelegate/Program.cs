@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Voiture v1 = new Voiture("1-ABC-001");
-        Voiture v2 = new Voiture("1-ABC-002");
+        Voiture v1 = new Voiture("AA-123-AA");
+        Voiture v2 = new Voiture("BB-456-BB");
 
         Carwash carwash = new Carwash();
 
