@@ -7,7 +7,7 @@ public abstract class Compte : ICustomer, IBanker
         return ((soldePrecedent < 0) ? 0 : soldePrecedent) + ((courant.Solde < 0) ? 0 : courant.Solde);
     }
 
-    public event PassageEnNegatifDelegate PassageEnNegatifEvent;
+    public event Action<Compte> PassageEnNegatifEvent;
 
     private string _numero;
     private double _solde;
