@@ -35,7 +35,12 @@ public class Courant : Compte
 
     public override void Retrait(double Montant)
     {
+        double ancienSolde = Solde;
         Retrait(Montant, LigneDeCredit);
+        if (ancienSolde >= 0D && Solde < 0)
+        {
+            RaisePassageEnNegatifEvent();
+        }
     }
 
     protected override double CalculInteret()
